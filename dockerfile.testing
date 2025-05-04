@@ -1,0 +1,12 @@
+#syntax=docker/dockerfile:1
+
+FROM erlang:latest
+
+WORKDIR /src/app/
+
+COPY ./src/ /src/app/src/
+COPY ./test/ /src/app/test/
+COPY ./rebar.config /src/app/
+
+CMD rebar3 eunit --dir="test/components/","test/integrations/","test/system/","test/unitaries/domains/file_writer/","test/unitaries/domains/http_client/","test/unitaries/domains/json_parser/","test/unitaries/domains/pokemon/","test/unitaries/domains/web_scraping_script/"
+
