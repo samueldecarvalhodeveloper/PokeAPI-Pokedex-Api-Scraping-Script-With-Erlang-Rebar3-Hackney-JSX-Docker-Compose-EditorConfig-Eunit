@@ -1,0 +1,13 @@
+#syntax=docker/dockerfile:1
+
+FROM erlang:28.0.2-alpine
+
+WORKDIR /src/app/
+
+COPY ./src/ /src/app/src/
+COPY ./rebar.config /src/app/
+COPY ./rebar.lock /src/app/
+
+RUN rebar3 escriptize
+
+CMD _build/default/bin/pokeapi_pokedex_api_scraping_script

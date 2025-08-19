@@ -1,0 +1,1 @@
+-define(LARGER_TIMEOUT, 600).
